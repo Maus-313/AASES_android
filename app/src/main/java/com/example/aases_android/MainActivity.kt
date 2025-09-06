@@ -65,6 +65,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.launch
+import com.example.aases_android.BuildConfig
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,10 +104,10 @@ fun AppScreen(
         contract = ActivityResultContracts.RequestPermission()
     ) { granted -> hasCameraPermission = granted }
     val scope = rememberCoroutineScope()
-    val apiKey = "YOUR_RESTRICTED_API_KEY" // For dev only; restrict in GCP & move server-side before shipping
+    val apiKey = BuildConfig.VISION_API_KEY
 
     LaunchedEffect(Unit) {
-        // Check the current permission state and request if necessary.
+        // Check the current permission state and request if necessary
         hasCameraPermission =
             ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) ==
                     PackageManager.PERMISSION_GRANTED

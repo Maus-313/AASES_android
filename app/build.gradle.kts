@@ -1,3 +1,11 @@
+
+import java.util.Properties
+
+val props = Properties().apply {
+    file("${rootDir}/local.properties").inputStream().use { load(it) }
+}
+val visionApiKey = props.getProperty("VISION_API_KEY", "")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -16,6 +24,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "VISION_API_KEY", "\"$visionApiKey\"")
     }
 
     buildTypes {
@@ -36,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
