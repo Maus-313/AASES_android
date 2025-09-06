@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AASES_android</string>
+    <string name="camera_permission_required">Please give camera access!</string>
+    <string name="manual_mode">Manual Mode</string>
+    <string name="automated_mode">Automatic Mode</string>
+    <string name="capture">Captured</string>
+    <string name="home">Home Screen</string>
+    <string name="stop">Stopped</string>
+    <string name="start">Started</string>
 </resources>
